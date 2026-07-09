@@ -122,6 +122,8 @@ jobs:
 
       - name: Deploy to staging
         env:
+          REGISTRY: ${{ secrets.REGISTRY }}
+          IMAGE_TAG: ${{ github.sha }}
           DEPLOY_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
           DB_PASS: ${{ secrets.DB_PASS }}
           JWT_SECRET: ${{ secrets.JWT_SECRET }}
@@ -148,6 +150,8 @@ jobs:
 
       - name: Deploy to production
         env:
+          REGISTRY: ${{ secrets.REGISTRY }}
+          IMAGE_TAG: ${{ github.sha }}
           DEPLOY_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
           DB_PASS: ${{ secrets.DB_PASS }}
           JWT_SECRET: ${{ secrets.JWT_SECRET }}
